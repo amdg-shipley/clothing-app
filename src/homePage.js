@@ -30,9 +30,20 @@ const HomePage = () => {
         }
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (clothingType && clothingQuantity) {
+            const checkout = {id:new Date().getTime().toString(), clothingType:clothingType, clothingQuantity:clothingQuantity};
+            setCheckouts((checkouts)=>{return [...checkouts,checkout]})
+            setClothingType('');
+            setClothingQuantity(1);
+        }
+    }
+
     if (!isCheckout) {
         return (
             <React.Fragment>
+                <form>
                 <div id="SiteHeading">
                     <h1>Welcome to the McKenna Center Clothing Pantry!</h1>
                 </div>
@@ -57,6 +68,7 @@ const HomePage = () => {
                     </input>
                 </div>
                 <button type='submit' onClick={proceedToCheckout}>Proceed to Checkout</button>
+                </form>
             </React.Fragment>
         )
     } else {
@@ -84,8 +96,20 @@ const HomePage = () => {
                             onChange={(e)=>setClothingQuantity(e.target.value)}
                         >
                         </input>
+                        <br>
+                        </br>
+                        <button type='submit' onClick={handleSubmit}>Submit Item</button>
                     </div>
                 </form>
+                {checkouts.map((checkout)=>{
+                const {id,clothingType,clothingQuantity} = checkout;
+                return (
+                    <div key={id} className='item'>
+                        <h3>Type: {clothingType}</h3>
+                        <h3>Quantity: {clothingQuantity}</h3>
+                    </div>
+                )
+            })}
             </React.Fragment>
         )
     }

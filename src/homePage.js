@@ -6,9 +6,7 @@ const HomePage = () => {
 
     const [isCheckout,setIsCheckout] = useState(false);
     const [fullName,setFullName] = useState('');
-    
-    const {setPeople} = useContext(UserContext);
-    const {people} = useContext(UserContext);
+
     const {guests} = useContext(UserContext);
     const {items} = useContext(UserContext);
     const {checkouts,setCheckouts} = useContext(UserContext);
@@ -41,7 +39,9 @@ const HomePage = () => {
     const finishCheckout = (e) => {
         if (checkouts !== []) {
             e.preventDefault();
-            // setCheckoutHistory([...checkouts]);
+            const intermediate = [...checkoutHistory]
+            console.log(checkouts);
+            setCheckoutHistory(intermediate.concat(checkouts))
             setCheckouts([]);
             setIsCheckout(false);
         }
@@ -114,8 +114,8 @@ const HomePage = () => {
                     const {id,clothingType,clothingQuantity} = checkout;
                     return (
                         <div key={id} className='item'>
-                            <h3>Type: {clothingType}</h3>
-                            <h3>Quantity: {clothingQuantity}</h3>
+                            <h3><span className='lbl'>Type: </span>{clothingType}</h3>
+                            <h3><span className='lbl'>Quantity: </span>{clothingQuantity}</h3>
                         </div>
                     )
                 })}

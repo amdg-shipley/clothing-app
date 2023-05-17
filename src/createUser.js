@@ -70,9 +70,9 @@ const CreateUser = () => {
                 const {id,firstName,lastName,startingPoints} = guest;
                 return (
                     <div key={id} className='item'>
-                        <h3>First Name: {firstName}</h3>
-                        <h3>Last Name: {lastName}</h3>
-                        <p>Starting Points: {startingPoints}</p>
+                        <h3><span className='lbl'>First Name: </span>{firstName}</h3>
+                        <h3><span className='lbl'>Last Name: </span>{lastName}</h3>
+                        <p><span className='lbl'>Starting Points: </span>{startingPoints}</p>
                     </div>
                 )
             })}

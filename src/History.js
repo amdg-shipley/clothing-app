@@ -8,9 +8,27 @@ const History = () => {
 
     return (
         <React.Fragment>
-            <h1>Transaction History</h1>
-            <div className='navlinks'>
-                <Link to='../'>Back to Home</Link>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <Link class="navbar-brand" to="/">McKenna Center Clothing Pantry</Link>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <Link class="nav-link" to="/createuser">Create User</Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link class="nav-link" to="/createclothing">Create New Clothing Item</Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link class="nav-link" to="/history">View Transaction History</Link>
+                        </li>
+                        </ul>
+                    </div>
+                </nav>
+            <div class="SiteHeading">
+                <h1>Transaction History</h1>
             </div>
             <div>
                 {checkoutHistory.map((checkout)=>{

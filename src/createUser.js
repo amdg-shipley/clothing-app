@@ -26,45 +26,69 @@ const CreateUser = () => {
 
     return (
         <React.Fragment>
-            <h1>Create New User</h1>
-            <div className='navlinks'>
-                <Link to='../'>Back to Home</Link>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <Link class="navbar-brand" to="/">McKenna Center Clothing Pantry</Link>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarNav">
+                        <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <Link class="nav-link" to="/createuser">Create User</Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link class="nav-link" to="/createclothing">Create New Clothing Item</Link>
+                        </li>
+                        <li class="nav-item">
+                            <Link class="nav-link" to="/history">View Transaction History</Link>
+                        </li>
+                        </ul>
+                    </div>
+                </nav>
+            <div class="SiteHeading">
+                <h1>Create New User</h1>
+                {/* <div className='navlinks'>
+                    <Link to='../'>Back to Home</Link>
+                </div> */}
             </div>
             <form>
-                <div className='inputs'>
-                    <label htmlFor='firstName'>First Name: </label>
-                    <input
-                        type='text'
-                        id='firstName'
-                        name='firstName'
-                        value={firstName}
-                        onChange={(e)=>setFirstName(e.target.value)}
-                    >
-                    </input>
+                <div class="container">
+                    <div className='inputs'>
+                        <label htmlFor='firstName'>First Name: </label>
+                        <input
+                            type='text'
+                            id='firstName'
+                            name='firstName'
+                            value={firstName}
+                            onChange={(e)=>setFirstName(e.target.value)}
+                        >
+                        </input>
+                    </div>
+                    <div className='inputs'>
+                        <label htmlFor='lastName'>Last Name: </label>
+                        <input
+                            type='text'
+                            id='lastName'
+                            name='lastName'
+                            value={lastName}
+                            onChange={(e)=>setLastName(e.target.value)}
+                        >
+                        </input>
+                    </div>
+                    
+                    <div className='inputs'>
+                        <label htmlFor='startingPoints'>Starting Points: </label>
+                        <input
+                            type='number'
+                            id='startingPoints'
+                            name='startingPoints'
+                            value={startingPoints}
+                            onChange={(e)=>setStartingPoints(e.target.value)}
+                        >
+                        </input>
+                    </div>
                 </div>
-                <div className='inputs'>
-                    <label htmlFor='lastName'>Last Name: </label>
-                    <input
-                        type='text'
-                        id='lastName'
-                        name='lastName'
-                        value={lastName}
-                        onChange={(e)=>setLastName(e.target.value)}
-                    >
-                    </input>
-                </div>
-                <div className='inputs'>
-                    <label htmlFor='startingPoints'>Starting Points: </label>
-                    <input
-                        type='number'
-                        id='startingPoints'
-                        name='startingPoints'
-                        value={startingPoints}
-                        onChange={(e)=>setStartingPoints(e.target.value)}
-                    >
-                    </input>
-                </div>
-                <button type='submit' onClick={handleSubmit}>Submit Request</button>
+                <button type='submit' class="btn" onClick={handleSubmit}>Submit Request</button>
             </form>
             {guests.map((guest)=>{
                 const {id,firstName,lastName,startingPoints} = guest;

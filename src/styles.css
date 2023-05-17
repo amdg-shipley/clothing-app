@@ -4,10 +4,30 @@
     text-align: center;
 }
 
-#SiteHeading {
+.SiteHeading {
     color: rgb(119, 6, 163);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     text-align: center;
+}
+
+/* Mr. Shipley added to center the forms */
+.container {
+	display: flex;
+	flex-direction: column;
+	padding: 15;
+	margin-left: 25%;
+	margin-right: 25%;
+	color: black;
+}
+
+button {
+	display: flex;
+	flex-direction: column;
+	padding: 15;
+	margin-top: 5%;
+	margin-left: 25%;
+	margin-right: 25%;
+	font-size: 24px;
 }
 
 h2,h1 {

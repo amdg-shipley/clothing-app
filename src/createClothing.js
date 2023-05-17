@@ -70,9 +70,9 @@ const CreateClothing = () => {
                 const {id,itemName,pointCost,limit} = item;
                 return (
                     <div key={id} className='item'>
-                        <h3>Item Name: {itemName}</h3>
-                        <h3>Point Cost: {pointCost}</h3>
-                        <p>Monthy Limit: {limit}</p>
+                        <h3><span className='lbl'>Item Name: </span>{itemName}</h3>
+                        <h3><span className='lbl'>Point Cost: </span>{pointCost}</h3>
+                        <p><span className='lbl'>Monthy Limit: </span>{limit}</p>
                     </div>
                 )
             })}

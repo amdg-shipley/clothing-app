@@ -53,3 +53,11 @@ button {
     border-color: transparent;
     
   }
+
+  h3 {
+    font-weight: normal;
+  }
+
+  .lbl {
+    font-weight: bold;
+  }

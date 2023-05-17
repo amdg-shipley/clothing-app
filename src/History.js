@@ -14,11 +14,13 @@ const History = () => {
             </div>
             <div>
                 {checkoutHistory.map((checkout)=>{
-                        const {id,clothingType,clothingQuantity} = checkout;
+                        const {id,clothingType,clothingQuantity,firstName,lastName,guestID} = checkout;
                         return (
                             <div key={id} className='item'>
-                                <h3>Type: {clothingType}</h3>
-                                <h3>Quantity: {clothingQuantity}</h3>
+                                <h3><span className='lbl'>First Name: </span>{firstName}</h3>
+                                <h3><span className='lbl'>Last Name: </span>{lastName}</h3>
+                                <h3><span className='lbl'>Type: </span>{clothingType}</h3>
+                                <h3><span className='lbl'>Quantity: </span>{clothingQuantity}</h3>
                             </div>
                         )
                     })}

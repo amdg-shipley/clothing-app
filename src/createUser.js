@@ -26,8 +26,9 @@ const CreateUser = () => {
 
     return (
         <React.Fragment>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <Link class="navbar-brand" to="/">McKenna Center Clothing Pantry</Link>
+            <div className='navigationcontainer'>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <Link class="navbar-brand" to="/">Home</Link>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -45,11 +46,9 @@ const CreateUser = () => {
                         </ul>
                     </div>
                 </nav>
+            </div>
             <div class="SiteHeading">
                 <h1>Create New User</h1>
-                {/* <div className='navlinks'>
-                    <Link to='../'>Back to Home</Link>
-                </div> */}
             </div>
             <form>
                 <div class="container">
@@ -90,16 +89,18 @@ const CreateUser = () => {
                 </div>
                 <button type='submit' class="btn" onClick={handleSubmit}>Submit Request</button>
             </form>
-            {guests.map((guest)=>{
-                const {id,firstName,lastName,startingPoints} = guest;
-                return (
-                    <div key={id} className='item'>
-                        <h3><span className='lbl'>First Name: </span>{firstName}</h3>
-                        <h3><span className='lbl'>Last Name: </span>{lastName}</h3>
-                        <p><span className='lbl'>Starting Points: </span>{startingPoints}</p>
-                    </div>
-                )
-            })}
+            <div className='elements'>
+                {guests.map((guest)=>{
+                    const {id,firstName,lastName,startingPoints} = guest;
+                    return (
+                        <div key={id} className='item'>
+                            <h3><span className='lbl'>First Name: </span>{firstName}</h3>
+                            <h3><span className='lbl'>Last Name: </span>{lastName}</h3>
+                            <p><span className='lbl'>Starting Points: </span>{startingPoints}</p>
+                        </div>
+                    )
+                })}
+            </div>
         </React.Fragment>
     )
 

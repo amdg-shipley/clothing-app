@@ -52,25 +52,27 @@ const HomePage = () => {
     if (!isCheckout) {
         return (
             <React.Fragment>
-                <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <Link class="navbar-brand" to="/">McKenna Center Clothing Pantry</Link>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNav">
-                        <ul class="navbar-nav">
-                        <li class="nav-item">
-                            <Link class="nav-link" to="/createuser">Create User</Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link class="nav-link" to="/createclothing">Create New Clothing Item</Link>
-                        </li>
-                        <li class="nav-item">
-                            <Link class="nav-link" to="/history">View Transaction History</Link>
-                        </li>
-                        </ul>
-                    </div>
-                </nav>
+                <div className='navigationcontainer'>
+                    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                        <Link class="navbar-brand" to="/">Home</Link>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                            <li class="nav-item">
+                                <Link class="nav-link" to="/createuser">Create User</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" to="/createclothing">Create New Clothing Item</Link>
+                            </li>
+                            <li class="nav-item">
+                                <Link class="nav-link" to="/history">View Transaction History</Link>
+                            </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
                 <div class="SiteHeading">
                     <h1>Welcome to the McKenna Center Clothing Pantry!</h1>
                 </div>
@@ -122,15 +124,17 @@ const HomePage = () => {
                     </div>
                     <button type='submit' onClick={handleSubmit} className='btn'>Submit Item</button>
                 </form>
-                {checkouts.map((checkout)=>{
-                    const {id,clothingType,clothingQuantity} = checkout;
-                    return (
-                        <div key={id} className='item'>
-                            <h3><span className='lbl'>Type: </span>{clothingType}</h3>
-                            <h3><span className='lbl'>Quantity: </span>{clothingQuantity}</h3>
-                        </div>
-                    )
-                })}
+                <div>
+                    {checkouts.map((checkout)=>{
+                        const {id,clothingType,clothingQuantity} = checkout;
+                        return (
+                            <div key={id} className='item'>
+                                <h3><span className='lbl'>Type: </span>{clothingType}</h3>
+                                <h3><span className='lbl'>Quantity: </span>{clothingQuantity}</h3>
+                            </div>
+                        )
+                    })}
+                </div>
                 <button type='submit' onClick={finishCheckout} className='btn'>End Checkout and Return to Home</button>
             </React.Fragment>
         )

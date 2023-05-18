@@ -25,8 +25,9 @@ const CreateClothing = () => {
 
     return (
         <React.Fragment>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <Link class="navbar-brand" to="/">McKenna Center Clothing Pantry</Link>
+            <div className='navigationcontainer'>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <Link class="navbar-brand" to="/">Home</Link>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -44,15 +45,13 @@ const CreateClothing = () => {
                         </ul>
                     </div>
                 </nav>
+            </div>
             <div class="SiteHeading">
                 <h1>Create New Clothing Item</h1>
-                {/* <div className='navlinks'>
-                    <Link to='../'>Back to Home</Link>
-                </div> */}
             </div>
             <form>
                 <div class="container">
-                    <div>
+                    <div className='inputs'>
                         <label htmlFor='itemName'>Item Name: </label>
                         <input
                             type='text'
@@ -63,7 +62,7 @@ const CreateClothing = () => {
                         >
                         </input>
                     </div>
-                    <div>
+                    <div className='inputs'>
                         <label htmlFor='pointCost'>Point Cost: </label>
                         <input
                             type='number'
@@ -87,18 +86,22 @@ const CreateClothing = () => {
                     </div>
                 </div>
                 <button type='submit' class="btn" onClick={handleSubmit}>Submit Request</button>
-                <p>Please Note: the <em>Point Limit</em> does not prevent the guest from purchasing a piece of clothing. Instead, it informs the staff member that the guest has reached the assigned limit and proceeds with the purchase regardless.</p>
+                <div className='container'>
+                    <p className='specialnote'>Please Note: the <em>Point Limit</em> does not prevent the guest from purchasing a piece of clothing. Instead, it informs the staff member that the guest has reached the assigned limit and proceeds with the purchase regardless.</p>
+                </div>
             </form>
-            {items.map((item)=>{
-                const {id,itemName,pointCost,limit} = item;
-                return (
-                    <div key={id} className='item'>
-                        <h3><span className='lbl'>Item Name: </span>{itemName}</h3>
-                        <h3><span className='lbl'>Point Cost: </span>{pointCost}</h3>
-                        <p><span className='lbl'>Monthy Limit: </span>{limit}</p>
-                    </div>
-                )
-            })}
+            <div className='elements'>
+                {items.map((item)=>{
+                    const {id,itemName,pointCost,limit} = item;
+                    return (
+                        <div key={id} className='item'>
+                            <h3><span className='lbl'>Item Name: </span>{itemName}</h3>
+                            <h3><span className='lbl'>Point Cost: </span>{pointCost}</h3>
+                            <p><span className='lbl'>Monthy Limit: </span>{limit}</p>
+                        </div>
+                    )
+                })}
+            </div>
         </React.Fragment>
     );
 

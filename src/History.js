@@ -8,8 +8,9 @@ const History = () => {
 
     return (
         <React.Fragment>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                    <Link class="navbar-brand" to="/">McKenna Center Clothing Pantry</Link>
+            <div className='navigationcontainer'>
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <Link class="navbar-brand" to="/">Home</Link>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
                     </button>
@@ -27,10 +28,11 @@ const History = () => {
                         </ul>
                     </div>
                 </nav>
+            </div>
             <div class="SiteHeading">
                 <h1>Transaction History</h1>
             </div>
-            <div>
+            <div className='elements'>
                 {checkoutHistory.map((checkout)=>{
                         const {id,clothingType,clothingQuantity,firstName,lastName,guestID} = checkout;
                         return (
